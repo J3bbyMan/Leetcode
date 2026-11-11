@@ -38,5 +38,5 @@ Approach:
 Time complexity:
 - The time complexity for this has an upper bound of O(i * j), where i and j are the lengths of arr1 and arr2 respectively
 
-Space complexity:
+Auxiliary Space complexity:
 - The space complexity is constant O(1), as the space used for the program is independent of the input parameters or other variables
