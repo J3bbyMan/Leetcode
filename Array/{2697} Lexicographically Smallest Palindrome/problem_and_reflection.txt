@@ -1,7 +1,38 @@
+You are given a string s consisting of lowercase English letters, and you are allowed to perform operations on it. In one operation, you can replace a character in s with another lowercase English letter.
+
+Your task is to make s a palindrome with the minimum number of operations possible. If there are multiple palindromes that can be made using the minimum number of operations, make the lexicographically smallest one.
+
+A string a is lexicographically smaller than a string b (of the same length) if in the first position where a and b differ, string a has a letter that appears earlier in the alphabet than the corresponding letter in b.
+
+Return the resulting palindrome string.
+
+>>>Example 1<<<
+Input: s = "egcfe"
+Output: "efcfe"
+Explanation: The minimum number of operations to make "egcfe" a palindrome is 1, and the lexicographically smallest palindrome string we can get by modifying one character is "efcfe", by changing 'g'.
+
+>>>Example 2<<<
+Input: s = "abcd"
+Output: "abba"
+Explanation: The minimum number of operations to make "abcd" a palindrome is 2, and the lexicographically smallest palindrome string we can get by modifying two characters is "abba".
+
+>>>Example 3<<<
+Input: s = "seven"
+Output: "neven"
+Explanation: The minimum number of operations to make "seven" a palindrome is 1, and the lexicographically smallest palindrome string we can get by modifying one character is "neven".
+
 Intuition:
+- I initially thought to have two pointers, one at the start and one at the end, so that lexicographical comparison is as fast as possible with relative characters from both ends.
+- In c, the characters are stored as simple ascii values, so less than, equal to or greater than comparisons compare the direct ascii values, allowing us to chose the earliest character in the lexicographical order
 
 Approach:
+- We have a while loop with two pointers, one at the start and one at the end. We compare the characters at the indexes at the pointers, and the item higher in the order is swapped for the lower one, the lower index incremented, the upper one decremented, and the process repeats.
+- This while loop continues until the two pointers cross over (i.e. when the upper pointer is lower than the lower pointer). This is not the case when the lower pointer equals the upper pointer (which is especially important for odd length strings)
 
 Time complexity:
+- The time complexity for this is O(n)
+  - This comes from the strlen function, which calculates the string length through a loop
+  - And from the character comparison which occurs (n/2) times which becomes O(n).
 
-Space complexity:
+Auxiliary Space complexity:
+  - The space complexity for this function is constant (O(1)), as the space required is always the same regardless of the input. 
